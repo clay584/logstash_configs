@@ -11,6 +11,7 @@ NONNEGINT \b(?:[0-9]+)\b
 WORD \b\w+\b
 NOTSPACE \S+
 SPACE \s*
+SPACE2 [ \t]+
 DATA .*?
 GREEDYDATA .*
 #QUOTEDSTRING (?:(?<!\\)(?:"(?:\\.|[^\\"])*"|(?:'(?:\\.|[^\\'])*')|(?:`(?:\\.|[^\\`])*`)))
@@ -29,6 +30,7 @@ HOSTNAME \b(?:[0-9A-Za-z][0-9A-Za-z-]{0,62})(?:\.(?:[0-9A-Za-z][0-9A-Za-z-]{0,62
 HOST %{HOSTNAME}
 IPORHOST (?:%{HOSTNAME}|%{IP})
 HOSTPORT (?:%{IPORHOST=~/\./}:%{POSINT})
+IPPROTOCOL (tcp|udp|icmp)
 
 # paths
 PATH (?:%{UNIXPATH}|%{WINPATH})

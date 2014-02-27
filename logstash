@@ -21,7 +21,7 @@
 ### END INIT INFO
 
 # Amount of memory for Java
-#JAVAMEM=256M
+JAVAMEM=2g
 
 # Location of logstash files
 LOCATION=/var/log/logstash
@@ -33,9 +33,10 @@ NAME=java
 DAEMON=$(which java)
 CONFIG_DIR=/etc/logstash/logstash.conf
 LOGFILE=/var/log/logstash/logstash.log
-JARNAME=logstash.jar
-#ARGS="-Xmx$JAVAMEM -Xms$JAVAMEM -jar ${JARNAME} agent --config ${CONFIG_DIR} --log ${LOGFILE} --grok-patterns-path ${PATTERNSPATH}"
-ARGS="-jar /opt/logstash/logstash.jar agent --config ${CONFIG_DIR} --log ${LOGFILE} -- web"
+JARNAME=logstash-1.3.3-flatjar.jar
+#ARGS="-Xmx$JAVAMEM -Xms$JAVAMEM -jar ${JARNAME} agent --config ${CONFIG_DIR} --log ${LOGFILE} --grok-patterns-path ${PATTERNSPATH} -- web"
+ARGS="-Xmx$JAVAMEM -Xms$JAVAMEM -jar /opt/logstash/${JARNAME} agent --config ${CONFIG_DIR} --log ${LOGFILE} -- web"
+#ARGS="-jar /opt/logstash/logstash-1.3.3-flatjar.jar agent --config ${CONFIG_DIR} --log ${LOGFILE} -- web"
 SCRIPTNAME=/etc/init.d/logstash
 PIDFILE=/var/run/logstash.pid
 base=logstash
