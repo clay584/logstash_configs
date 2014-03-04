@@ -1,7 +1,7 @@
 logstash_configs
 ================
 
-Logstash configs for v1.2.2 standalone
+Logstash configs for v1.3.3 standalone
 
 These were written for logstash running on Centos 6.4
 
